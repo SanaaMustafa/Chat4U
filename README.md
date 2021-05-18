@@ -1,8 +1,8 @@
 # chat-example
 
-#for-IS-3-FCI-SCU-Students
+# for-IS-3-FCI-SCU-Students
 
-You can also spin up a free Heroku dyno to test it out:
+Check Deployed Demo Heroku:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://fci-chat.herokuapp.com/)
 
