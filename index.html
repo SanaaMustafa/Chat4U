@@ -8,7 +8,7 @@
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           Helvetica, Arial, sans-serif;
       }
-      h1{
+      h1 {
         text-align: center;
         margin: auto;
       }
@@ -22,7 +22,6 @@
         border-top-right-radius: 2rem;
         background-color: rgba(152, 157, 236, 0.747);
       }
-     
 
       #form {
         background: rgba(0, 0, 0, 0.15);
@@ -102,36 +101,35 @@
     </style>
   </head>
   <body>
-  
     <div class="container">
       <ul id="messages"></ul>
 
-    <div id="con">
+      <div id="con">
         <h1>
-            WELCOME! to OUR Chat
-          </h1>
-          <span></span>
-          <form id="form0">
-            <input id="name" />
-            <span onclick="takename()">Login</span>
-          </form>
-    </div>
+          WELCOME! to OUR Chat
+        </h1>
+        <span></span>
+        <form id="form0">
+          <input id="name" />
+          <span onclick="takename()">Login</span>
+        </form>
+      </div>
+
       <form id="form" action="">
-        <input id="input" autocomplete="off" /> <span onclick="addemoj(e ='&#128512;')">&#128512;</span><button>Send</button>
+        <input id="input" autocomplete="off" />
+        <span onclick="addemoj(e ='&#128512;')"> &#128512; </span>
+        <button>Send</button>
       </form>
     </div>
     <script src="/socket.io/socket.io.js"></script>
 
     <script>
       var socket = io();
-      var users = [
-        {
-          name: "thanaa"
-        }
-      ];
-function addemoj(e){
-  document.getElementById('input').value += e;
-}
+
+      function addemoj(e) {
+        document.getElementById("input").value += e;
+      }
+
       var names = ["thanaa", "hala", "heba", "sara"];
       var colors = ["green", "red", "yellow", "blue"];
       var name = "";
@@ -141,12 +139,12 @@ function addemoj(e){
         if (names.includes(nameval)) {
           name = nameval;
           color = colors[names.indexOf(name)];
+
           document.getElementById("con").style.display = "none";
           document.getElementById("form").style.display = "flex";
-
-        
         }
       }
+
 
       var messages = document.getElementById("messages");
       var form = document.getElementById("form");
@@ -156,10 +154,10 @@ function addemoj(e){
         e.preventDefault();
         if (input.value) {
           let msg = {
-            name : name,
-            color : color,
-            value : input.value
-          }
+            name: name,
+            color: color,
+            value: input.value
+          };
           socket.emit("chat message", msg);
           input.value = "";
         }
